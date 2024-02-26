@@ -5,16 +5,16 @@ def PribZnach(n,m,t,xd,yd):
     if m<=3: y=-(n+yd)*m
     return [x,y]
 
-import csv                      #Импортируем библиотеку для работы с таблицой
 
-file=open('space.txt', encoding='UTF-8')
-data=file.read().split('/n')    #Открываем файл и разделяем по рядам
+file=open('space.txt', encoding='UTF-8').read()
+data=file.split('/n')    #Открываем файл и разделяем по рядам
 
 header=data.pop(0).split('*')   #Первая строка с названиями стобцов
-spacenew=open('spacenew.csv','w')
-writer=csv.writer(spacenew)
-writer.writerow(header)
-print(data)
+spacenew=[]
+
 for i in data:
     s=i.split('*')
-    print(s)
+    if s[2]=='0 0':
+        s[2]=PribZnach(int(s[0][5]),int(s[0][6]),len(str(s[1])),int(s[3][0:s[3].find(' ')]),int(s[3][s[3].find(' '):]))
+    spacenew.append(s)
+print(spacenew)
