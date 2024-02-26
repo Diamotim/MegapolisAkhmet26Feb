@@ -17,5 +17,5 @@ for i in data:
     if s[2]=='0 0':
         s[2]=str(PribZnach(int(s[0][5]),int(s[0][6]),len(str(s[1])),int(s[3][0:s[3].find(' ')]),int(s[3][s[3].find(' '):]))).replace(', ',' ')
     space_new.write(str(str(s).replace('[','').replace(']','').split(', ')).replace('[','').replace(']','').replace('"','').replace("'",'').replace(", ",'*')+'\n')
-    
+    if s[0][3]=='V': print(s[0]+' - '+'('+str(s[2][:s[2].find(' ')]).replace('[','').replace(']','')+str(s[2][s[2].find(' '):]).replace('[','').replace(']','')+')')
 space_new.close()
